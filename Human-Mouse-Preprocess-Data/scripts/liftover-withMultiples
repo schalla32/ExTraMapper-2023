@@ -54,10 +54,10 @@ refGDdir2=$ensemblDir/org2 # genomedata archive for org2
 	suffix=flank$flank-minMatch$minMatch-multiples-partCoding
 
 	# fourth fields stays the same, fifth is replaced by multiplicity, sixth will be the new strand after liftover
-	/content/ExTraMapper/Human-Mouse-Preprocess-Data/scripts/liftOver <(cat $outdir/org1_partCodingExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
+	${EXTRAMAPPER_DIR}/preprocess/bin/liftOver <(cat $outdir/org1_partCodingExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
 		$chain1to2 org2_mapped-$suffix.bed org2_unmapped-$suffix.bed -minMatch=$minMatch -multiple
 
-	/content/ExTraMapper/Human-Mouse-Preprocess-Data/scripts/liftOver <(cat $outdir/org2_partCodingExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
+	${EXTRAMAPPER_DIR}/preprocess/bin/liftOver <(cat $outdir/org2_partCodingExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
 		$chain2to1 org1_mapped-$suffix.bed org1_unmapped-$suffix.bed -minMatch=$minMatch -multiple
 
 	# chr, start, end, exonId, Multiplicity, strand (after conversion)
@@ -114,10 +114,10 @@ refGDdir2=$ensemblDir/org2 # genomedata archive for org2
 
 	# fourth fields stays the same, fifth is replaced by multiplicity, sixth will be the new strand after liftover
 	#liftOver <(cat $outdir/org1_allExonsList.bed | awk '{if ($4=="+") print $1,$2-s,$3+s,$5,$4,$4; else print $1,$2-s,$3+s,$5,$4,$4;}' s=$flank) \
-	/content/ExTraMapper/Human-Mouse-Preprocess-Data/scripts/liftOver <(cat $outdir/org1_allExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
+	${EXTRAMAPPER_DIR}/preprocess/bin/liftOver <(cat $outdir/org1_allExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
 		$chain1to2 org2_mapped-$suffix.bed org2_unmapped-$suffix.bed -minMatch=$minMatch -multiple
 
-	/content/ExTraMapper/Human-Mouse-Preprocess-Data/scripts/liftOver <(cat $outdir/org2_allExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
+	${EXTRAMAPPER_DIR}/preprocess/bin/liftOver <(cat $outdir/org2_allExonsList.bed | awk '{print $1,$2-s,$3+s,$5,$4,$4}' s=$flank) \
 		$chain2to1 org1_mapped-$suffix.bed org1_unmapped-$suffix.bed -minMatch=$minMatch -multiple
 
 	cat org1_mapped-$suffix.bed | sort -k1,1 -k2,2n > $outdir/org2_to_org1_liftOver_mappedExonsList-$suffix.bed
@@ -168,4 +168,3 @@ refGDdir2=$ensemblDir/org2 # genomedata archive for org2
 	gzip $outdir/org2_VS_org1_to_org2_nonintersectingExonsList-$suffix.bed $outdir/org1_VS_org2_to_org1_nonintersectingExonsList-$suffix.bed
 
 	###############################################################################################################################################
-
