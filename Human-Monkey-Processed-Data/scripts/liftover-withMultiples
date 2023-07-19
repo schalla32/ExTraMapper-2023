@@ -2,7 +2,7 @@
 set -o pipefail
 set -o errexit 
 
-source config.conf
+source config.human-monkey.conf
 
 
 dataDir=${EXTRAMAPPER_DIR}/preprocess/data
