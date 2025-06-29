@@ -247,7 +247,7 @@ sub downloadensmblfiles {
   }
   if (!-e "$path/org2.gtf.gz") {
     print ("wget ftp://ftp.ensembl.org/pub/release-$releaseNo/gtf/$org2EnsemblName/*.$releaseNo.gtf.gz -O $path/org2.gtf.gz\n");
-    system("wget ftp://ftp.ensembl.org/pub/release-$releaseNo/gtf/$org2EnsemblName/*.$releaseNo.gtf.gz -O $path/org2.gtf.gz 2> /dev/null");
+    system("bash 1_get_xenoRefGene_gtf.sh $path");
     print ("GTF files downloaded in $path\n");
   } else {
     print ("$path/org2.gtf.gz file exists, skipping download\n");
