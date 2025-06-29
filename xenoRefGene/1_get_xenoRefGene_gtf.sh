@@ -3,7 +3,7 @@
 
 ASSEMBLY="panTro6"
 TABLE="xenoRefGene"
-OUTPUT_PREFIX="org2.${TABLE}"
+OUTPUT_PREFIX="org2"
 
 wget -q "http://hgdownload.soe.ucsc.edu/goldenPath/${ASSEMBLY}/database/${TABLE}.txt.gz"
 
