@@ -79,24 +79,24 @@ if ($#ARGV == -1 || $ARGV[0] eq "help") {
 } elsif ($ARGV[0] eq "example") {
   my @exmpl = "# reference genome versions
 ref1=hg38
-ref2=mm10
+ref2=panTro6
 
 # short names of organisms
 org1=human
-org2=mouse
+org2=chimpanzee
 
 # Ensembl release version number to be used for both organisms
-releaseNo=102
+releaseNo=110
 
 # Find out the standard Ensembl names for your organisms of interest from ftp://ftp.ensembl.org/pub/release-81/gtf/
 org1EnsemblName=homo_sapiens
-org2EnsemblName=mus_musculus
+org2EnsemblName=pan_troglodytes
 
 # Find out the full and short Ensembl Mart names for your organisms of interest from ftp://ftp.ensembl.org/pub/release-81/mysql/ensembl_mart_81
 org1EnsemblMartName=hsapiens
-org2EnsemblMartName=mmusculus
+org2EnsemblMartName=ptroglodytes
 org1EnsemblMartNameShort=hsap
-org2EnsemblMartNameShort=mmus
+org2EnsemblMartNameShort=ptro
 
 #liftOver executable path (Check here https://hgdownload.cse.ucsc.edu/admin/exe)
 liftOver=/usr/bin/liftOver\n";
