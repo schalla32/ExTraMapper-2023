@@ -19,7 +19,7 @@ if ! command -v genePredToGtf &>/dev/null; then
 fi
 
 # Convert GenePred to GT
-genePredToGtf "${TABLE}.genePred" "${OUTPUT_PREFIX}.gtf"
+genePredToGtf -utr file "${TABLE}.genePred" "${OUTPUT_PREFIX}.gtf"
 
 # compress gtf
 gzip -f "${OUTPUT_PREFIX}.gtf"
