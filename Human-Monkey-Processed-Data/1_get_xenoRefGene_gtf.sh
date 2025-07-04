@@ -5,7 +5,7 @@ ASSEMBLY="panTro6"
 TABLE="xenoRefGene"
 OUTPUT_PREFIX="org2"
 
-wget -q "http://hgdownload.soe.ucsc.edu/goldenPath/${ASSEMBLY}/database/${TABLE}.txt.gz"
+wget -q "https://hgdownload.soe.ucsc.edu/goldenPath/panTro6/bigZips/genes/"
 
 echo "to GenePred format"
 gunzip -c "${TABLE}.txt.gz" > "${TABLE}.genePred"
